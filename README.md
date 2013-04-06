@@ -1,5 +1,5 @@
-Geometry, Textures & Shaders Tutorial for CreativeApplications.net
-==================================================
+Geometry, Textures & Shaders Tutorial for CAN
+===================================
 
 Examples for an upcoming tutorial I'm preparing for [CreativeApplications.net] (http://www.creativeapplications.net/).
 
