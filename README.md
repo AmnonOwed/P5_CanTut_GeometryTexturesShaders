@@ -8,7 +8,7 @@ This is work-in-progress source code! Still searching for the exact focus of the
 ####Custom 2D Geometry
 Creating a custom 2D shape using beginShape-vertex-endShape
 
-####Textures (
+####Textures
 Texturing custom 2D/3D geometry
 
 ####Shaders
