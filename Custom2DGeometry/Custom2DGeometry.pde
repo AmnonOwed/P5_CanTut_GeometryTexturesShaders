@@ -17,18 +17,18 @@
  
 import processing.opengl.*;
  
-int numSegments = 21;
-float diamInner = 100;
-float diamOuter = 250;
+int NUMSEGMENTS = 21;
+float DIAM_INNER = 100;
+float DIAM_OUTER = 250;
  
-color[] colsInner = new color[numSegments];
-color[] colsOuter = new color[numSegments];
-float[] tx = new float[numSegments];
-float[] ty = new float[numSegments];
+color[] colsInner = new color[NUMSEGMENTS];
+color[] colsOuter = new color[NUMSEGMENTS];
+float[] tx = new float[NUMSEGMENTS];
+float[] ty = new float[NUMSEGMENTS];
  
 void setup() {
   size(700, 700, OPENGL);
-  float step = TWO_PI/numSegments;
+  float step = TWO_PI/NUMSEGMENTS;
   for (int i=0; i<tx.length; i++) {
     float theta = step * i;
     tx[i] = sin(theta);
@@ -48,14 +48,14 @@ void draw() {
     stroke(255);
     beginShape(TRIANGLE_STRIP);
   }
-  for (int i=0; i<numSegments+1; i++) {
-    int im = i%numSegments;
+  for (int i=0; i<NUMSEGMENTS+1; i++) {
+    int im = i%NUMSEGMENTS;
     fill(colsInner[im]);
     float dynamicInner = 0.5 + noise(frameCount*0.01+im);
-    vertex(tx[im]*diamInner*dynamicInner, ty[im]*diamInner*dynamicInner);
+    vertex(tx[im]*DIAM_INNER*dynamicInner, ty[im]*DIAM_INNER*dynamicInner);
     fill(colsOuter[im]);
     float dynamicOuter = 0.5 + noise(frameCount*0.02+im);
-    vertex(tx[im]*diamOuter*dynamicOuter, ty[im]*diamOuter*dynamicOuter);
+    vertex(tx[im]*DIAM_OUTER*dynamicOuter, ty[im]*DIAM_OUTER*dynamicOuter);
   }
   endShape();
 }
