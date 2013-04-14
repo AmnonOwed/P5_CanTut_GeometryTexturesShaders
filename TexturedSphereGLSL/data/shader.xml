@@ -1,0 +1,11 @@
+<effect name="Textured Sphere GLSL example">
+    <description>Adding a basic GLSL lighting shader to the Textured Sphere example</description>
+    <vertex>shaderVert.glsl</vertex>
+    <fragment>shaderFrag.glsl</fragment>
+    <textures>
+        <texture type="sampler2d" name="EarthTexture" label="EarthTexture">0</texture>
+    </textures>
+	<parameters>
+		<parameter type="vec3" name="LightPosition" label="LightPosition">0 0 0</parameter>
+	</parameters>
+</effect>
