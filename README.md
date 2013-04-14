@@ -1,12 +1,9 @@
 Geometry, Textures & Shaders Tutorial for CAN
 ===================================
 
-Examples for an upcoming tutorial I'm preparing for [CreativeApplications.net] (http://www.creativeapplications.net/).
-
+Examples for an upcoming tutorial I'm preparing for [CreativeApplications.net](http://www.creativeapplications.net/).
 This is work-in-progress source code! Still searching for the exact focus of the blog post.
-
-All code examples built with Processing 1.5.1. and in some cases GLGraphics 1.0.0
-
+All code examples built with [Processing 1.5.1.](http://processing.org/download/) and in some cases [GLGraphics 1.0.0](http://glgraphics.sourceforge.net/)
 Once Processing 2.0 final is out, I'll port these code examples to the new & improved OpenGL renderer.
 
 ####Custom2DGeometry
