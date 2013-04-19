@@ -1,0 +1,16 @@
+<effect name="Multi-Textured Sphere GLSL example">
+    <description>Applying a GLSL shader with multiple input textures to the TexturedSphere example.</description>
+    <vertex>shaderVert.glsl</vertex>
+    <fragment>shaderFrag.glsl</fragment>
+    <textures>
+        <texture type="sampler2d" name="EarthDay">0</texture>
+        <texture type="sampler2d" name="EarthNight">1</texture>
+        <texture type="sampler2d" name="EarthGloss">2</texture>
+        <texture type="sampler2d" name="EarthClouds">3</texture>
+    </textures>
+	<parameters>
+		<parameter type="vec3" name="LightPosition">0 0 0</parameter>
+		<parameter type="float" name="Time">0</parameter>
+		<parameter type="float" name="useClouds">0</parameter>
+	</parameters>
+</effect>

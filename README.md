@@ -13,6 +13,9 @@ Creating a custom 2D shape with interpolated colors using beginShape-vertex-endS
 ####DynamicTextures2D
 Creating textured QUADS with dynamically generated texture coordinates
 
+####MultiTexturedSphereGLSL
+Applying a GLSL shader with multiple input textures to the TexturedSphere example.
+
 ####Texture2DAnimation
 Creating an animation by using texture coordinates to read from a spritesheet
 
