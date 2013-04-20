@@ -16,6 +16,9 @@ Creating textured QUADS with dynamically generated texture coordinates.
 ####GLSL_Heightmap
 Creating a heightmap through GLSL with separate color and displacement maps that can be changed in realtime.
 
+####GLSL_SphereDisplacement
+Displacing a sphere outwards through GLSL with separate color and displacement maps that can be changed in realtime.
+
 ####MultiTexturedSphereGLSL
 Applying a GLSL shader with multiple input textures to the TexturedSphere example.
 
