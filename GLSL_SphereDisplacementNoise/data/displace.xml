@@ -1,0 +1,12 @@
+<effect name="displacement map">
+    <description>Displacement mapping effect</description>
+    <vertex>displaceVert.glsl</vertex>
+    <fragment>displaceFrag.glsl</fragment>
+    <textures>
+        <texture type="sampler2d" name="colorMap" label="colorMap">0</texture>
+    </textures>
+	<parameters>
+		<parameter type="float" name="displaceStrength">0.0</parameter>
+		<parameter type="float" name="time">0.0</parameter>
+	</parameters>
+</effect>

@@ -22,6 +22,9 @@ Creating a GLSL heightmap running on shader-based procedural noise instead of a 
 ####GLSL_SphereDisplacement
 Displacing a sphere outwards through GLSL with separate color and displacement maps that can be changed in realtime.
 
+####GLSL_SphereDisplacementNoise
+Displacing a sphere outwards through GLSL with shader-based procedural noise instead of a displacement map texture.
+
 ####MultiTexturedSphereGLSL
 Applying a GLSL shader with multiple input textures to the TexturedSphere example.
 
