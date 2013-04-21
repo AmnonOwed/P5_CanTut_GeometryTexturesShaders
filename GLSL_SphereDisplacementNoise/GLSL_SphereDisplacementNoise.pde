@@ -39,8 +39,8 @@ int currentColorMap = 1;
 void setup() {
   size(1280, 720, GLConstants.GLGRAPHICS);
 
-  images[0] = loadImage("Texture01.jpg");
-  images[1] = loadImage("Texture02.jpg");
+  images[0] = loadImage("../_Images/Texture01.jpg");
+  images[1] = loadImage("../_Images/Texture02.jpg");
 
   renderer = (GLGraphics) g;
   sphere = createIcosahedron(subdivisionLevel);
