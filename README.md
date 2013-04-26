@@ -10,6 +10,9 @@ Code tested & working under Windows (7 x64 and XP SP3 x32) for both NVIDIA (GTX 
 ####Custom2DGeometry
 Creating a custom 2D shape with interpolated colors using beginShape-vertex-endShape.
 
+####Custom3DGeometry
+Creating a custom 3D shape with interpolated colors using beginShape-vertex-endShape.
+
 ####DynamicTextures2D
 Creating textured QUADS with dynamically generated texture coordinates.
 
