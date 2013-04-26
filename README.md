@@ -16,6 +16,9 @@ Creating a custom 3D shape with interpolated colors using beginShape-vertex-endS
 ####DynamicTextures2D
 Creating textured QUADS with dynamically generated texture coordinates.
 
+####FixedMovingTextures2D
+Creating MOVING custom 2D shapes with either FIXED or MOVING textures. See the difference.
+
 ####GLSL_Heightmap
 Creating a heightmap through GLSL with separate color and displacement maps that can be changed in realtime.
 
