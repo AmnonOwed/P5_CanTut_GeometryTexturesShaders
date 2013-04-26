@@ -7,6 +7,8 @@ All code examples built with [Processing 1.5.1.](http://processing.org/download/
 Once Processing 2.0 final is out, I'll port these code examples to the new & improved OpenGL renderer.
 Code tested & working under Windows (7 x64 and XP SP3 x32) for both NVIDIA (GTX 570M) and Radeon (HD 4800).
 
+Note: To save some space, many of these sketches share one central **_Images** folder!
+
 ####Custom2DGeometry
 Creating a custom 2D shape with interpolated colors using beginShape-vertex-endShape.
 
