@@ -46,7 +46,7 @@ class Pyramid {
     endShape();
     
     fill(c[1], transparency);
-    beginShape(QUAD);
+    beginShape(QUADS);
     for (int i=1; i<5; i++) {
       vertex(v[i].x, v[i].y, v[i].z);
     }
