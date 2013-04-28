@@ -33,6 +33,9 @@ Displacing a sphere outwards through GLSL with separate color and displacement m
 ####GLSL_SphereDisplacementNoise
 Displacing a sphere outwards through GLSL with shader-based procedural noise instead of a displacement map texture.
 
+####GLSL_TextureMix
+Creating a smooth mix between multiple (to a GLModel applied) textures in the fragment shader.
+
 ####MultiTexturedSphereGLSL
 Applying a GLSL shader with multiple input textures to the TexturedSphere example.
 

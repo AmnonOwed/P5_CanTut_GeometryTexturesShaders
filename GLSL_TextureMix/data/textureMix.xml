@@ -1,0 +1,14 @@
+<effect name="textureMix">
+    <description>textureMix effect</description>
+    <vertex>textureMixVert.glsl</vertex>
+    <fragment>textureMixFrag.glsl</fragment>
+    <textures>
+        <texture type="sampler2d" name="tex0" label="tex0">0</texture>
+        <texture type="sampler2d" name="tex1" label="tex1">1</texture>
+        <texture type="sampler2d" name="tex2" label="tex2">2</texture>
+    </textures>
+	<parameters>
+		<parameter type="float" name="time">0.0</parameter>
+		<parameter type="int" name="mixType">0</parameter>
+	</parameters>
+</effect>
