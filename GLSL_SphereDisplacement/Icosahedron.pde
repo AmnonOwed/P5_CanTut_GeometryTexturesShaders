@@ -123,30 +123,32 @@ class Icosahedron {
 }
 
 GLModel createIcosahedron(int level) {
+  // the icosahedron is created with positions, normals and texture coordinates in the above class
   Icosahedron ico = new Icosahedron(level);
   
+  // create GLModel with positions.size() vertices of type TRIANGLES and make it static (the vertices don't change)
   GLModel mesh = new GLModel(this, ico.positions.size(), TRIANGLES, GLModel.STATIC);
 
-  // positions
-  mesh.updateVertices(ico.positions);
+  mesh.updateVertices(ico.positions); // put the arrayList of positions into the mesh
   
-  // normals
+  // initialize normals and put the arrayList of normals into the mesh
   mesh.initNormals();
   mesh.updateNormals(ico.normals);
 
-  // texCoords + textures
-  mesh.initTextures(2);
-  mesh.updateTexCoords(0, ico.texCoords);
+  // prepare all the settings with regard to textures and texture coordinates
+  mesh.initTextures(2); // initialize 2 textures (colorMap and displacementMap)
+  mesh.updateTexCoords(0, ico.texCoords); // load the texture coordinates for texture 0 (coordinates for both textures are identical, so we load them only once)
+  // setup GLTextureParameters to enable UV repeat texturing
   GLTextureParameters textureParameters = new GLTextureParameters();
   textureParameters.wrappingU = REPEAT;
   textureParameters.wrappingV = REPEAT;
-  texColorMap = new GLTexture(this, 1000, 1000, textureParameters);
-  texDisplacementMap = new GLTexture(this, 1000, 1000, textureParameters);
-  mesh.setTexture(0, texColorMap);
-  mesh.setTexture(1, texDisplacementMap);
-  setColorMap(currentColorMap);
-  setDisplacementMap(currentDisplacementMap);
+  texColorMap = new GLTexture(this, images[0].width, images[0].height, textureParameters); // initialize GLTexture
+  texDisplacementMap = new GLTexture(this, images[0].width, images[0].height, textureParameters); // initialize GLTexture
+  mesh.setTexture(0, texColorMap); // connect colorMap to the first texture slot
+  mesh.setTexture(1, texDisplacementMap); // connect displacementMap to the second texture slot
+  setColorMap(currentColorMap); // set the colorMap (see custom method)
+  setDisplacementMap(currentDisplacementMap); // set the displacementMap (see custom method)
 
-  return mesh;
+  return mesh; // our work is done here, return DA MESH! ;-)
 }
 

@@ -49,7 +49,7 @@ void setup() {
 
 void draw() {
   translate(width/2, height/2); // translate to center of the screen
-  rotateX(radians(60)); // fixed rotation of 90 degrees over the X axis
+  rotateX(radians(60)); // fixed rotation of 60 degrees over the X axis
   rotateZ(frameCount*0.005); // dynamic frameCount-based rotation over the Z axis
 
   renderer.beginGL(); // place draw calls between the begin/endGL() calls

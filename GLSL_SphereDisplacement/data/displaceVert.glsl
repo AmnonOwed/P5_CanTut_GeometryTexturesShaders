@@ -3,17 +3,13 @@ uniform sampler2D displacementMap;
 uniform float displaceStrength;
 
 void main(void) {
-	vec4 newVertexPos;
-	vec4 dv;
-	float df;
+	gl_TexCoord[0].xy = gl_MultiTexCoord0.xy; // pass texture coordinates to the fragment shader
 	
-	gl_TexCoord[0].xy = gl_MultiTexCoord0.xy;
+	vec4 dv = texture2D( displacementMap, gl_MultiTexCoord0.xy ); // rgba color of displacement map
+
+	float df = 0.30*dv.r + 0.59*dv.g + 0.11*dv.b; // brightness calculation to create displacement float from rgb values
+
+	vec4 newVertexPos = gl_Vertex + vec4(gl_Normal * df * displaceStrength, 0.0); // regular vertex position + direction * displacementMap * displaceStrength
 	
-	dv = texture2D( displacementMap, gl_MultiTexCoord0.xy );
-	
-	df = 0.30*dv.x + 0.59*dv.y + 0.11*dv.z;
-	
-	newVertexPos = vec4(gl_Normal * df * displaceStrength, 0.0) + gl_Vertex;
-	
-	gl_Position = gl_ModelViewProjectionMatrix * newVertexPos;
+	gl_Position = gl_ModelViewProjectionMatrix * newVertexPos; // apply modelViewProjection matrix to determine final position
 }
