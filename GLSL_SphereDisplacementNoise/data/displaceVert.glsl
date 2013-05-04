@@ -98,16 +98,13 @@ float snoise(vec3 v)
 }
 
 void main(void) {
-	vec4 newVertexPos;
-	float df;
-	
-	gl_TexCoord[0].xy = gl_MultiTexCoord0.xy;
+	gl_TexCoord[0].xy = gl_MultiTexCoord0.xy; // pass texture coordinates to the fragment shader
 
-	vec3 p  = gl_Normal.xyz;
-	p.x += time;
-	df = snoise( p );
+	vec3 p = gl_Normal.xyz; // put normal into vec3 p for convenience
+	p.x += time; // add time to make the noise and the subsequent displacement move
+	float df = snoise( p ); // create displacement float value from shader-based 3D Perlin noise
+
+	vec4 newVertexPos = gl_Vertex + vec4(gl_Normal * df * displaceStrength, 0.0); // regular vertex position + direction * displacementMap * displaceStrength
 	
-	newVertexPos = vec4(gl_Normal * df * displaceStrength, 0.0) + gl_Vertex;
-	
-	gl_Position = gl_ModelViewProjectionMatrix * newVertexPos;
+	gl_Position = gl_ModelViewProjectionMatrix * newVertexPos; // apply modelViewProjection matrix to determine final position
 }

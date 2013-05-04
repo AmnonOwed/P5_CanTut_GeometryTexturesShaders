@@ -32,7 +32,7 @@ GLModelEffect displace; // GLSL shader that can be applied to a GLModel
 
 PImage[] images = new PImage[2]; // array to hold 2 input images
 GLTexture texColorMap; // the colorMap GLTexture
-int currentColorMap; // variables to keep track of the current colorMap
+int currentColorMap; // variable to keep track of the current colorMap
 
 void setup() {
   size(1280, 720, GLConstants.GLGRAPHICS); // use the GLGraphics renderer
