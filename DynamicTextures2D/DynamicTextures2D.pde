@@ -20,7 +20,7 @@ int DIM, NUMQUADS; // variables to hold the grid dimensions and total grid size
 PImage img; // the image
 
 void setup() {
-  img = loadImage("image.jpg"); // load the image (from the /data subdirectory
+  img = loadImage("image.jpg"); // load the image (from the /data subdirectory)
   size(img.width*2, img.height, OPENGL); // set the width of the sketch to twice the image width
   textureMode(NORMALIZED); // use normalized (0 to 1) texture coordinates
   noStroke(); // turn off stroke (for the rest of the sketch)
