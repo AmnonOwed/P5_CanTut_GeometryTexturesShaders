@@ -101,38 +101,51 @@ float snoise(vec3 v)
 }
 
 void main(void) {
-	vec2 p = gl_TexCoord[0].xy;
+	vec2 p = gl_TexCoord[0].xy; // put texture coordinates in vec2 p for convenience
 	
-	vec4 col0 = texture2D(tex0, p);
-	vec4 col1 = texture2D(tex1, p);
-	vec4 col2 = texture2D(tex2, p);
+	vec4 col0 = texture2D(tex0, p); // color of texture 0
+	vec4 col1 = texture2D(tex1, p); // color of texture 1
+	vec4 col2 = texture2D(tex2, p); // color of texture 2
 	
+	// differentiated vec3 input parameters for the noise based on texture coordinates, time and a random shift
 	vec3 q0 = vec3(p, time);
 	vec3 q1 = vec3(time + 2500.0, p);
 	vec3 q2 = vec3(p, time + 5000.0);
 	
+	// 3x noise based on 3x input, map noise output from range (-1, 1) to range (0, 1)
 	float noise0 = 0.5*(snoise( q0 ) + 1.0);
 	float noise1 = 0.5*(snoise( q1 ) + 1.0);
 	float noise2 = 0.5*(snoise( q2 ) + 1.0);
 	
+	// vec4 to hold the final color of this fragment/pixel
 	vec4 colorFinal;
 
+	// do something, depending on the mixType (0=subtle, 1=regular, 2=obvious)
 	if (mixType==0) {
-	
+
+		// add all 3x noise values
 		float totalNoise = noise0 + noise1 + noise2;
 
+		// calculate relative noise weights (adding up to 1)
 		noise0 /= totalNoise;
 		noise1 /= totalNoise;
 		noise2 /= totalNoise;
 
+		// multiply 3x texture color by relative noise weights
 		col0 *= noise0;
 		col1 *= noise1;
 		col2 *= noise2;
-
+		
+		// construct final color by adding up the noise-weighted colors from the three textures
 		colorFinal = col0 + col1 + col2;
 		
 	} else if (mixType==1) {
 
+	    // noise0 depends which textures are mixed
+		// interpolation is determined by the relative position within the specific 0.33 range
+		// 0.00 - 0.33 = texture 0 and 1
+		// 0.33 - 0.66 = texture 1 and 2
+		// 0.66 - 1.00 = texture 2 and 0
 		if (noise0 < 0.33) {
 			colorFinal = mix(col0, col1, noise0/0.33);
 		} else if (noise0 < 0.66) {
@@ -143,9 +156,14 @@ void main(void) {
 		
 	} else {
 	
-		if (noise0 < 0.3) {
+	    // noise0 depends which textures are mixed
+		// interpolation is determined by one of the noise values
+		// 0.00 - 0.33 = texture 0 and 1, interpolation by noise value 1
+		// 0.33 - 0.66 = texture 1 and 2, interpolation by noise value 2
+		// 0.66 - 1.00 = texture 2 and 0, interpolation by noise value 0
+		if (noise0 < 0.33) {
 			colorFinal = mix(col0, col1, noise1);
-		} else if (noise0 < 0.6) {
+		} else if (noise0 < 0.66) {
 			colorFinal = mix(col1, col2, noise2);
 		} else {
 			colorFinal = mix(col2, col0, noise0);
@@ -153,5 +171,6 @@ void main(void) {
 		
 	}
 	
+	// set the fragment color to the final calculated color
 	gl_FragColor = colorFinal;
 }
