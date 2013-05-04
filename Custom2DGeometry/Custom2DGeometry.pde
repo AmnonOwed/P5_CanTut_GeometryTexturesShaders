@@ -66,7 +66,7 @@ void drawShape(int x, int y, int mode, float diam_inner, float diam_outer, int n
   if (mode==TRIANGLE_FAN) { vertex(0, 0); } // for the TRIANGLE_FAN a central point is important
   float step = TWO_PI/numSegments; // generate the step size based on the number of segments
   for (int i=0; i<numSegments+1; i++) { // +1 so we connect start and end
-    int im = i%numSegments; // modulo so the end equals the start
+    int im = i==numSegments?0:i; // make sure the end equals the start
     float theta = step * im; // angle for this segment (both vertices)
 
     // calculate x and y based on angle
