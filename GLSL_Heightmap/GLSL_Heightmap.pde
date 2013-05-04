@@ -1,7 +1,7 @@
 
 /*
 
- GLSL Heightmap by Amnon Owed (April 2013)
+ GLSL Heightmap by Amnon Owed (May 2013)
  https://github.com/AmnonOwed
  http://vimeo.com/amnon
 
