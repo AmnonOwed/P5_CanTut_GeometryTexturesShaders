@@ -28,11 +28,11 @@ import javax.media.opengl.*; // import the Java OpenGL (JOGL) library to enable 
 GLGraphics renderer; // the main GLGraphics renderer
 GLModel earth; // GLModel to hold the geometry, textures, texture coordinates etc.
 int subdivisionLevel = 6; // number of times the icosahedron will be subdivided
-float zoom = 250; // scaleFactor aka zoom
-boolean wireframe; // boolean to toggle wireframe of textured view
+float zoom = 250; // scale factor aka zoom
+boolean useWireframe; // boolean to toggle wireframe of textured view
 
 PVector rotation = new PVector(); // vector to store the rotation
-PVector velocity = new PVector(); // vector to store the change to rotation
+PVector velocity = new PVector(); // vector to store the change in rotation
 float rotationSpeed = 0.02; // the rotation speed
 
 void setup() {
@@ -47,7 +47,7 @@ void draw() {
   GL gl = renderer.gl; // get gl instance for direct opengl calls
 
   // toggle wireframe or textured view
-  if (!wireframe) { gl.glPolygonMode( GL.GL_FRONT_AND_BACK, GL.GL_FILL ); }
+  if (!useWireframe) { gl.glPolygonMode( GL.GL_FRONT_AND_BACK, GL.GL_FILL ); }
   else { gl.glPolygonMode(GL.GL_FRONT_AND_BACK, GL.GL_LINE); }
 
   background(0); // black background
@@ -82,6 +82,6 @@ void draw() {
 }
 
 void keyPressed() {
-  if (key == 'w') { wireframe = !wireframe; } // toggle wireframe or textured view
+  if (key == 'w') { useWireframe = !useWireframe; } // toggle wireframe or textured view
 }
 
