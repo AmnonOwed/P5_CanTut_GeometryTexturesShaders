@@ -123,35 +123,39 @@ class Icosahedron {
 }
 
 GLModel createIcosahedron(int level) {
+  // the icosahedron is created with positions, normals and texture coordinates in the above class
   Icosahedron ico = new Icosahedron(level);
   
+  // create GLModel with positions.size() vertices of type TRIANGLES and make it static (the vertices don't change)
   GLModel mesh = new GLModel(this, ico.positions.size(), TRIANGLES, GLModel.STATIC);
 
-  // positions
-  mesh.updateVertices(ico.positions);
+  mesh.updateVertices(ico.positions); // put the arrayList of positions into the mesh
   
-  // normals
+  // initialize normals and put the arrayList of normals into the mesh
   mesh.initNormals();
   mesh.updateNormals(ico.normals);
 
-  // textures + texCoords
-  mesh.initTextures(4);
+  // prepare all the settings with regard to textures and texture coordinates
+  mesh.initTextures(4); // in this example we are using 4 textures
+  mesh.updateTexCoords(0, ico.texCoords); // put the arrayList of texture coordinates into the mesh (they are equal for all textures, so loaded only once)
+
+  // setup GLTextureParameters to enable UV repeat texturing
   GLTextureParameters textureParameters = new GLTextureParameters();
   textureParameters.wrappingU = REPEAT;
   textureParameters.wrappingV = REPEAT;
 
+  // load & initialize the 4 GLTextures (get higher resolution textures for better quality visuals)
   GLTexture tex0 = new GLTexture(this, "earthmap1k.jpg", textureParameters); // day
   GLTexture tex1 = new GLTexture(this, "earthlights1k.jpg", textureParameters); // night
   GLTexture tex2 = new GLTexture(this, "earthspec1k.jpg", textureParameters); // specular
   GLTexture tex3 = new GLTexture(this, "earthcloudmap.jpg", textureParameters); // clouds
 
+  // connect the textures to their respective texture slots
   mesh.setTexture(0, tex0);
   mesh.setTexture(1, tex1);
   mesh.setTexture(2, tex2);
   mesh.setTexture(3, tex3);
 
-  mesh.updateTexCoords(0, ico.texCoords);
-
-  return mesh;
+  return mesh; // our work is done here, return DA MESH! ;-)
 }
 

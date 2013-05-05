@@ -18,6 +18,8 @@
 
  Built with Processing 1.5.1 + GLGraphics 1.0.0
 
+ For higher quality visuals, higher resolution textures are advised.
+
 */
 
 import processing.opengl.*; // import the OpenGL core library
