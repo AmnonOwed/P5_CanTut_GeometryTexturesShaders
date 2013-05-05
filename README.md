@@ -5,11 +5,8 @@ Fully commented code examples for an upcoming tutorial I'm preparing for [Creati
 Code tested & working under Windows (7 x64 and XP SP3 x32) for both NVIDIA (GTX 570M) and Radeon (HD 4800).
 Since Processing 2.0 is still in development the examples are made available for both Processing 1.5.1 (with the GLGraphics library) and Processing 2.0b8.
 
-Code examples for [Processing 1.5.1.](http://processing.org/download/) and in most cases [GLGraphics 1.0.0](http://glgraphics.sourceforge.net/) are in this repo:
-https://github.com/AmnonOwed/P5_CanTut_GeometryTexturesShaders
-
-Code examples for [Processing 2.0b8](http://processing.org/download/) are in this repo:
-https://github.com/AmnonOwed/P5_CanTut_GeometryTexturesShaders2B8
+Code examples for [Processing 1.5.1.](http://processing.org/download/) and in most cases [GLGraphics 1.0.0](http://glgraphics.sourceforge.net/) are in [this repo](https://github.com/AmnonOwed/P5_CanTut_GeometryTexturesShaders).
+Code examples for [Processing 2.0b8](http://processing.org/download/) are in [this repo](https://github.com/AmnonOwed/P5_CanTut_GeometryTexturesShaders2B8).
 
 Note: To save some space, many of these sketches share one central **_Images** folder!
 
